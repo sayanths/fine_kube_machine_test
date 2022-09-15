@@ -1,3 +1,4 @@
+import 'package:fine_kube_machine_test/articles/view/articles.dart';
 import 'package:fine_kube_machine_test/history_page/view/view.dart';
 import 'package:fine_kube_machine_test/home_screen/view/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,6 @@ class BottomNavigationController extends ChangeNotifier {
   List<Widget> widgetListBottomNav = [
     const HomeScreen(),
     const HistoryPage(),
-    const HomeScreen(),
+    const ArticlePage(),
   ];
 }
