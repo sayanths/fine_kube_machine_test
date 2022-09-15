@@ -9,16 +9,15 @@ class BottomNavigationBarSCreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final  controler =context.read<BottomNavigationController>();
+    final controler = context.read<BottomNavigationController>();
     return Scaffold(
       bottomNavigationBar: Consumer<BottomNavigationController>(
         builder: (context, value, _) => Row(
           children: [
             Expanded(
               flex: 3,
-              child: Container(
+              child: SizedBox(
                 height: size.height / 10,
-                color: const Color.fromARGB(255, 214, 11, 11),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
@@ -28,8 +27,6 @@ class BottomNavigationBarSCreen extends StatelessWidget {
                         value.changeIndex(index);
                         value.widgetListBottomNav[index];
                       },
-                      splashColor: const Color.fromARGB(0, 245, 242, 242),
-                      highlightColor: Colors.red,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -69,19 +66,27 @@ class BottomNavigationBarSCreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: SizedBox(
-                width: 15,
-                height: 50,
-                child: Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  height: size.height / 10,
-                  decoration: BoxDecoration(
-                    color: yellow,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    size: 30,
+              child: InkWell(
+                onTap: () {
+                  
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 15,
+                    height: 55,
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 10, bottom: 5),
+                      height: size.height / 10,
+                      decoration: BoxDecoration(
+                        color: yellow,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: const Icon(
+                        Icons.add,
+                        size: 30,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -89,7 +94,7 @@ class BottomNavigationBarSCreen extends StatelessWidget {
           ],
         ),
       ),
-      body:controler.widgetListBottomNav[controler.currentIndex],
+      body: controler.widgetListBottomNav[controler.currentIndex],
     );
   }
 }
