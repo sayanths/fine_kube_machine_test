@@ -8,40 +8,53 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
-        height: size.height -
-            AppBar().preferredSize.height -
-            MediaQuery.of(context).padding.top,
-        width: size.width,
-        child:  CustomScrollView(
+
+      body: ColoredBox(
+        color: blue,
+        child: CustomScrollView(
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
+              
               stretch: true,
               expandedHeight: 200,
+              title: Text("Home"),
+              leading: CircleAvatar(),
+              actions: [
+                Image.asset("assets/notifications.png",height: 5,)
+              ],
+              centerTitle: true,
               flexibleSpace: FlexibleSpaceBar(
-                
-                
-               // title: Text('app bar'),
+              
                 background: Container(
-                  color: orange,
+                  color: blue,
                 ),
-                stretchModes: <StretchMode>[
+                stretchModes: const <StretchMode>[
                   StretchMode.blurBackground,
-                  
                 ],
-
               ),
               // onStretchTrigger: (() {
-              
-              // }), 
+      
+              // }),
             ),
             SliverToBoxAdapter(
-          child: Container(
-            height: size.height,
-            width: 300,
-            color: blue,
-          )
-            )
+                child: Stack(
+                  children: [
+                    Container(
+                      
+              height: size.height,
+              width: size.width,
+              decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+              ),
+            ),
+                  ],
+                ))
           ],
         ),
       ),
