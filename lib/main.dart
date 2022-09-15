@@ -2,6 +2,7 @@ import 'package:fine_kube_machine_test/home_screen/view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'bottom_navigation/view/bottom_navigation.dart';
 import 'bottom_navigation/view_model/bottom_nav_controller.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const HomeScreen(),
+        home:  BottomNavigationBarSCreen(),
       ),
     );
   }
