@@ -27,8 +27,20 @@ class HomeScreen extends StatelessWidget {
               centerTitle: true,
               flexibleSpace: FlexibleSpaceBar(
               
-                background: Container(
-                  color: blue,
+                background: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                   Container(
+                    margin: EdgeInsets.only(top: 65),
+                    height: 150,
+                    width: 140,
+                    decoration: BoxDecoration(
+                      color: orange,
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                   ),
+                   
+                  ],
                 ),
                 stretchModes: const <StretchMode>[
                   StretchMode.blurBackground,
