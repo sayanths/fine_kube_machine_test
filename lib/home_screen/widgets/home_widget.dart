@@ -18,20 +18,6 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
         child: Stack(
           clipBehavior: Clip.none,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  CircleAvatar(),
-                  Text(
-                    "Home",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  Icon(Icons.notifications)
-                ],
-              ),
-            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -44,42 +30,66 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                       color: orange,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Column(
+                    child: Stack(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: const [
-                                SizedBox(
-                                  height: 35,
+                            // Column(
+                            //   mainAxisAlignment: MainAxisAlignment.start,
+                            //   children: const [
+                            //     SizedBox(
+                            //       height: 35,
+                            //     ),
+                            //     Padding(
+                            //       padding: EdgeInsets.symmetric(horizontal: 25),
+                            //       child: Text(
+                            //         "sdsd",
+                            //         style: TextStyle(color: Colors.black),
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
+
+                            Row(
+                              children: [
+                                const Text(
+                                  "sdsd",
+                                  style: TextStyle(color: Colors.black),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 25),
-                                  child: Text(
-                                    "sdsd",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Align(
-                                  alignment: Alignment.topRight,
-                                  child: Image.asset(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Align(
+                                      //  alignment: Alignment.topRight,
+                                      child: Image.asset(
                                     "assets/bottom_left_arrow.png",
                                     height: 60,
                                     color: Colors.black.withOpacity(0.2),
                                   )),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  CircleAvatar(
+                    backgroundColor: yellow,
+                  ),
+                  Text(
+                    "Home",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  Icon(Icons.notifications)
                 ],
               ),
             ),
@@ -96,22 +106,14 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
               left: 0.0,
               right: 0.0,
               top: 220,
-              bottom: -60.0,
+              bottom: -40.0,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  CircleAvatar(
-                    radius: 40,
-                  ),
-                  CircleAvatar(
-                    radius: 40,
-                  ),
-                  CircleAvatar(
-                    radius: 40,
-                  ),
-                  CircleAvatar(
-                    radius: 40,
-                  ),
+                  CustomCircleAvatar(),
+                  CustomCircleAvatar(),
+                  CustomCircleAvatar(),
+                  CustomCircleAvatar(),
                 ],
               ),
             ),
@@ -130,5 +132,27 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
     return true;
+  }
+}
+
+class CustomCircleAvatar extends StatelessWidget {
+  const CustomCircleAvatar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: Colors.white.withOpacity(0.5),
+      radius: 50,
+      child: const CircleAvatar(
+        radius: 30,
+        backgroundColor: Colors.black,
+        // child: Icon(
+        //   Icons.add,
+        //   color: yellow,
+        // ),
+      ),
+    );
   }
 }
