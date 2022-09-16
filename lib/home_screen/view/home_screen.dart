@@ -1,5 +1,6 @@
 import 'package:fine_kube_machine_test/core/colors/colors.dart';
 import 'package:flutter/material.dart';
+import '../widgets/apbar_widgets/appbar_widget.dart';
 import '../widgets/home_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,16 +42,22 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                       SizedBox(
-                        height: size.height/6,
+                      SizedBox(
+                        height: size.height / 6,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
-                            Text("My debts"),
-                            Text("see All"),
+                            Text(
+                              "My debts",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            Text(
+                              "see All",
+                              style: TextStyle(color: grey),
+                            ),
                           ],
                         ),
                       ),
@@ -108,34 +115,5 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-          CircleAvatar(
-              radius: 18,
-              backgroundImage: AssetImage("assets/appbar_icon.png")),
-          Text(
-            "Home",
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w600,
-              color: black,
-            ),
-          ),
-          Icon(
-            Icons.notifications,
-            color: black,
-          )
-        ]);
   }
 }
