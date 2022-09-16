@@ -106,56 +106,63 @@ class CaruselSliderContainerCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 70, left: 15),
-            height: 200,
-            width: 160,
-            decoration: BoxDecoration(
-              color: orange,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    Flexible(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "sdsd",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          const SizedBox(
-                            width: 50,
-                          ),
-                          Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Image.asset(
-                                "assets/bottom_left_arrow.png",
-                                height: 60,
-                                color: Colors.black.withOpacity(0.2),
-                              )),
-                        ],
-                      ),
-                    ),
-                    const Flexible(
-                      child: Text("ds"),
-                    ),
-                    const Flexible(
-                      child: Text("ds"),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+    return Row(
+     
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 70, left: 15),
+          height: 200,
+          width: 160,
+          decoration: BoxDecoration(
+            color: orange,
+            borderRadius: BorderRadius.circular(15),
           ),
-        ],
-      ),
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Flexible(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(height: 10,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            
+                            Flexible(
+                              child: const Text(
+                                "sdsd",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 50,
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              "assets/bottom_left_arrow.png",
+                              height: 60,
+                              color: Colors.white.withOpacity(0.2),
+                            )),
+                      ],
+                    ),
+                  ),
+                  const Flexible(
+                    child: Text("ds"),
+                  ),
+                  const Flexible(
+                    child: Text("ds"),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
