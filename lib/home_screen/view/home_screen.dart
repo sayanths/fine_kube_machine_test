@@ -9,15 +9,22 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        title: const CustomAppBar(),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      backgroundColor: blue,
       body: SafeArea(
         child: ColoredBox(
-          color: Colors.blue,
+          color: blue,
           child: CustomScrollView(
             slivers: <Widget>[
-              SliverPersistentHeader(
+              const SliverPersistentHeader(
                 pinned: true,
                 floating: false,
-                delegate: CustomSliverDelegate(
+                delegate: CustomSliverAppBarDelegate(
                   expandedHeight: 200,
                 ),
               ),
@@ -34,8 +41,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 60,
+                       SizedBox(
+                        height: size.height/6,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
@@ -57,8 +64,8 @@ class HomeScreen extends StatelessWidget {
                               itemCount: 10,
                               itemBuilder: (BuildContext context, int index) {
                                 return Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 20),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
                                   child: Card(
                                     elevation: 0,
                                     child: ListTile(
@@ -68,7 +75,8 @@ class HomeScreen extends StatelessWidget {
                                         width: 50,
                                         decoration: BoxDecoration(
                                           color: yellow,
-                                          borderRadius: BorderRadius.circular(6),
+                                          borderRadius:
+                                              BorderRadius.circular(6),
                                           image: const DecorationImage(
                                               image: NetworkImage(
                                                 "https://png.pngtree.com/png-vector/20200522/ourlarge/pngtree-square-blue-abstract-gradient-business-border-png-image_2210970.jpg",
@@ -100,5 +108,34 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          CircleAvatar(
+              radius: 18,
+              backgroundImage: AssetImage("assets/appbar_icon.png")),
+          Text(
+            "Home",
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+              color: black,
+            ),
+          ),
+          Icon(
+            Icons.notifications,
+            color: black,
+          )
+        ]);
   }
 }
