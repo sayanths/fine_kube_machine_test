@@ -64,7 +64,7 @@ class SliverColorCustom extends StatelessWidget {
     return SizedBox(
       // height: appBarSize < kToolbarHeight ? kToolbarHeight : appBarSize,
       child: ColoredBox(
-        color: Colors.blue,
+        color: blue,
         child: Column(
           children: const [],
         ),
@@ -107,7 +107,6 @@ class CaruselSliderContainerCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-     
       children: [
         Container(
           margin: const EdgeInsets.only(top: 70, left: 15),
@@ -120,18 +119,20 @@ class CaruselSliderContainerCustom extends StatelessWidget {
           child: Stack(
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Flexible(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            
+                          children: const [
                             Flexible(
-                              child: const Text(
+                              child: Text(
                                 "sdsd",
                                 style: TextStyle(color: Colors.black),
                               ),
@@ -152,10 +153,16 @@ class CaruselSliderContainerCustom extends StatelessWidget {
                     ),
                   ),
                   const Flexible(
-                    child: Text("ds"),
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text("\$ 1250"),
+                    ),
                   ),
                   const Flexible(
-                    child: Text("ds"),
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text("2 debts"),
+                    ),
                   ),
                 ],
               ),
