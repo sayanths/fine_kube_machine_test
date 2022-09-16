@@ -1,7 +1,7 @@
 import 'package:fine_kube_machine_test/core/colors/colors.dart';
 import 'package:flutter/material.dart';
 import '../widgets/apbar_widgets/appbar_widget.dart';
-import '../widgets/home_widget.dart';
+import '../widgets/sliver_custom.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
