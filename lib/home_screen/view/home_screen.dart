@@ -55,30 +55,35 @@ class HomeScreen extends StatelessWidget {
                         child: ListView.builder(
                             itemCount: 10,
                             itemBuilder: (BuildContext context, int index) {
-                              return Card(
-                                elevation: 0,
-                                child: ListTile(
-                                  leading: Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                      color: yellow,
-                                      borderRadius: BorderRadius.circular(6),
-                                      image: const DecorationImage(
-                                        image: NetworkImage(
-                                          "https://png.pngtree.com/png-vector/20200522/ourlarge/pngtree-square-blue-abstract-gradient-business-border-png-image_2210970.jpg",
-                                        ),
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: Card(
+                                  elevation: 0,
+                                  child: ListTile(
+                                    leading: Container(
+                                      margin: const EdgeInsets.only(top: 10),
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        color: yellow,
+                                        borderRadius: BorderRadius.circular(6),
+                                        image: const DecorationImage(
+                                            image: NetworkImage(
+                                              "https://png.pngtree.com/png-vector/20200522/ourlarge/pngtree-square-blue-abstract-gradient-business-border-png-image_2210970.jpg",
+                                            ),
+                                            fit: BoxFit.cover),
                                       ),
                                     ),
-                                  ),
-                                  title: const Text("data"),
-                                  subtitle: const Text("ssdsd"),
-                                  trailing: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: const [
-                                      Text("100"),
-                                      Text("out of \$ 300")
-                                    ],
+                                    title: const Text("data"),
+                                    subtitle: const Text("ssdsd"),
+                                    trailing: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: const [
+                                        Text("100"),
+                                        Text("out of \$ 300")
+                                      ],
+                                    ),
                                   ),
                                 ),
                               );

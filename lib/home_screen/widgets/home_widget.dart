@@ -57,6 +57,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                   "sdsd",
                                   style: TextStyle(color: Colors.black),
                                 ),
+                                
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Align(
