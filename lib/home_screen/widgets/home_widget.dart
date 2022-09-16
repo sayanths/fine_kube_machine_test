@@ -25,7 +25,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
               left: 0.0,
               right: 0.0,
               top: 220,
-              bottom: -40.0,
+              bottom: -70.0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
