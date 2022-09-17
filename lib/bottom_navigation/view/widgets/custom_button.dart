@@ -1,5 +1,3 @@
-
-import 'package:fine_kube_machine_test/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class CustomAddButton extends StatelessWidget {
@@ -13,9 +11,7 @@ class CustomAddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Routes.push(screen: screen)
-      },
+      onTap: () {},
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
