@@ -33,4 +33,3 @@ class BottomNavigationController extends ChangeNotifier {
     const ArticlePage(),
   ];
 }
-
