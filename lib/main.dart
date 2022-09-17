@@ -1,3 +1,4 @@
+import 'package:fine_kube_machine_test/home_screen/view_model/home_screen_controller.dart';
 import 'package:fine_kube_machine_test/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<BottomNavigationController>(
           create: (context) => BottomNavigationController(),
+        ),
+        ChangeNotifierProvider<HomeScreenController>(
+          create: (context) => HomeScreenController(),
         ),
       ],
       child: MaterialApp(
