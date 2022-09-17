@@ -1,3 +1,6 @@
+import 'package:fine_kube_machine_test/add_page/view/add_page.dart';
+import 'package:fine_kube_machine_test/core/colors/colors.dart';
+import 'package:fine_kube_machine_test/core/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class CustomAddButton extends StatelessWidget {
@@ -11,7 +14,10 @@ class CustomAddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const AddPage()));
+      },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
@@ -21,7 +27,7 @@ class CustomAddButton extends StatelessWidget {
             margin: const EdgeInsets.only(right: 10, bottom: 5),
             height: size.height / 10,
             decoration: BoxDecoration(
-              color: Colors.greenAccent,
+              color: yellow,
               borderRadius: BorderRadius.circular(25),
             ),
             child: const Icon(
@@ -31,6 +37,30 @@ class CustomAddButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class CustomBottomNavImageContainer extends StatelessWidget {
+  final String image;
+  final String title;
+  const CustomBottomNavImageContainer({
+    Key? key,
+    required this.image,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image.asset(
+          image,
+          height: 15,
+        ),
+        height10,
+        Text(title),
+      ],
     );
   }
 }

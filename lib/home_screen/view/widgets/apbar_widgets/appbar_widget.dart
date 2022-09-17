@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../core/colors/colors.dart';
+
+import '../../../../core/colors/colors.dart';
+
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({

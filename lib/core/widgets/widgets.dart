@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:flutter/material.dart';
 
 const height10 = SizedBox(
   height: 10,
@@ -14,3 +15,5 @@ const height20 = SizedBox(
 const width50 = SizedBox(
   width: 50,
 );
+
+const greyTitle = TextStyle(color: Colors.grey);

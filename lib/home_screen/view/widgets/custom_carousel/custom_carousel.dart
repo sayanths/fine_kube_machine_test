@@ -2,7 +2,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/colors/colors.dart';
+import '../../../../core/colors/colors.dart';
+
 import '../apbar_widgets/appbar_card.dart';
 
 class CarouselWidget extends StatelessWidget {

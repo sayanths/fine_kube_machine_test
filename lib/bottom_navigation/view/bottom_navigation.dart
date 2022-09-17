@@ -1,5 +1,5 @@
 import 'package:fine_kube_machine_test/bottom_navigation/view_model/bottom_nav_controller.dart';
-import 'package:fine_kube_machine_test/core/colors/colors.dart';
+import 'package:fine_kube_machine_test/core/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +11,6 @@ class BottomNavigationBarSCreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final controler = context.read<BottomNavigationController>();
     return Scaffold(
       bottomNavigationBar: Consumer<BottomNavigationController>(
         builder: (context, value, _) => Row(
@@ -49,15 +48,14 @@ class BottomNavigationBarSCreen extends StatelessWidget {
                               color: Colors.black,
                             ),
                           ),
-                          Icon(
-                            value.listOfIcons[index],
-                            size: size.width * .076,
-                            color: index == value.currentIndex
-                                ? Colors.black
-                                : Colors.grey,
+                          height20,
+                          Row(
+                            children: [
+                              value.images[index],
+                            ],
                           ),
-                          const SizedBox(
-                            height: 30,
+                          SizedBox(
+                            height: size.height / 70,
                           ),
                         ],
                       ),
