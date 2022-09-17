@@ -1,3 +1,4 @@
+import 'package:fine_kube_machine_test/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'bottom_navigation/view/bottom_navigation.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        key: Routes.navigatorKey,
         debugShowCheckedModeBanner: false,
         title: 'Fine kube',
         theme: ThemeData(
