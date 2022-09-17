@@ -1,12 +1,13 @@
-import 'package:fine_kube_machine_test/home_screen/view/home_screen.dart';
+import 'package:fine_kube_machine_test/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'bottom_navigation/view/bottom_navigation.dart';
 import 'bottom_navigation/view_model/bottom_nav_controller.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,15 +18,17 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<BottomNavigationController>(
-            create: (context) => BottomNavigationController()),
+          create: (context) => BottomNavigationController(),
+        ),
       ],
       child: MaterialApp(
+        key: Routes.navigatorKey,
         debugShowCheckedModeBanner: false,
         title: 'Fine kube',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:  BottomNavigationBarSCreen(),
+        home: const BottomNavigationBarSCreen(),
       ),
     );
   }
