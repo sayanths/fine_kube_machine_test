@@ -1,6 +1,5 @@
+import 'package:fine_kube_machine_test/core/colors/colors.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/colors/colors.dart';
 
 class AppBarCustomCard extends StatelessWidget {
   const AppBarCustomCard(

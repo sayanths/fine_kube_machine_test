@@ -1,13 +1,20 @@
 import 'package:fine_kube_machine_test/core/colors/colors.dart';
+import 'package:fine_kube_machine_test/core/widgets/widgets.dart';
+import 'package:fine_kube_machine_test/home_screen/model/person_model.dart';
+import 'package:fine_kube_machine_test/home_screen/view/widgets/apbar_widgets/appbar_widget.dart';
+import 'package:fine_kube_machine_test/home_screen/view/widgets/sliver_custom.dart';
+import 'package:fine_kube_machine_test/home_screen/view_model/home_screen_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../widgets/apbar_widgets/appbar_widget.dart';
-import '../widgets/sliver_custom.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    context.read<HomeScreenController>().personDataList;
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -24,7 +31,7 @@ class HomeScreen extends StatelessWidget {
             slivers: <Widget>[
               const SliverPersistentHeader(
                 pinned: true,
-                floating: false,
+                floating: true,
                 delegate: CustomSliverAppBarDelegate(
                   expandedHeight: 200,
                 ),
@@ -43,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: size.height / 6,
+                        height: size.height / 7,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
@@ -54,61 +61,95 @@ class HomeScreen extends StatelessWidget {
                               "My debts",
                               style: TextStyle(
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
                               "see All",
-                              style: TextStyle(color: grey),
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 18),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: size.height / 35,
                       ),
                       Expanded(
-                        child: LimitedBox(
-                          maxHeight: size.height,
-                          child: ListView.builder(
-                              itemCount: 10,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20),
-                                  child: Card(
-                                    elevation: 0,
-                                    child: ListTile(
-                                      leading: Container(
-                                        margin: const EdgeInsets.only(top: 10),
-                                        height: 50,
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                          color: yellow,
-                                          borderRadius:
-                                              BorderRadius.circular(6),
-                                          image: const DecorationImage(
-                                              image: NetworkImage(
-                                                "https://png.pngtree.com/png-vector/20200522/ourlarge/pngtree-square-blue-abstract-gradient-business-border-png-image_2210970.jpg",
+                          child: Consumer<HomeScreenController>(
+                        builder: (context, value, _) => FutureBuilder(
+                          future: value.fetchUserData(),
+                          builder: (context,
+                              AsyncSnapshot<List<ModelClass>> snapshot) {
+                            return snapshot.hasData
+                                ? LimitedBox(
+                                    maxHeight: size.height,
+                                    child: RefreshIndicator(
+                                      onRefresh: value.refreshList,
+                                      color: blue,
+                                      child: ListView.builder(
+                                        shrinkWrap: true,
+                                        physics: const BouncingScrollPhysics(),
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          final data = snapshot.data?[index];
+                                          return Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 20),
+                                            child: Card(
+                                              elevation: 0,
+                                              child: ListTile(
+                                                leading: Container(
+                                                  margin: const EdgeInsets.only(
+                                                      top: 10),
+                                                  height: 50,
+                                                  width: 50,
+                                                  decoration: BoxDecoration(
+                                                    color: yellow,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            6),
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(
+                                                          data!.image
+                                                              .toString(),
+                                                        ),
+                                                        fit: BoxFit.cover),
+                                                  ),
+                                                ),
+                                                title: Text(data.name),
+                                                subtitle: const Text(
+                                                    "Until 20/03/2020",
+                                                    style: greyTitle),
+                                                trailing: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: const [
+                                                    Text(
+                                                      "\$100",
+                                                      style:
+                                                          TextStyle(color: red),
+                                                    ),
+                                                    Text(
+                                                      "out of \$ 300",
+                                                      style: greyTitle,
+                                                    )
+                                                  ],
+                                                ),
                                               ),
-                                              fit: BoxFit.cover),
-                                        ),
-                                      ),
-                                      title: const Text("data"),
-                                      subtitle: const Text("ssdsd"),
-                                      trailing: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: const [
-                                          Text("100"),
-                                          Text("out of \$ 300")
-                                        ],
+                                            ),
+                                          );
+                                        },
+                                        itemCount: value.personDataList.length,
                                       ),
                                     ),
-                                  ),
-                                );
-                              }),
+                                  )
+                                : const Center(
+                                    child: CupertinoActivityIndicator(),
+                                  );
+                          },
                         ),
-                      )
+                      ))
                     ],
                   ),
                 ),
@@ -119,4 +160,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }
