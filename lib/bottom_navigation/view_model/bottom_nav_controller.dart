@@ -22,4 +22,6 @@ class BottomNavigationController extends ChangeNotifier {
     const HistoryPage(),
     const ArticlePage(),
   ];
+
+  
 }

@@ -3,6 +3,8 @@ import 'package:fine_kube_machine_test/core/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'widgets/custom_button.dart';
+
 class BottomNavigationBarSCreen extends StatelessWidget {
   const BottomNavigationBarSCreen({Key? key}) : super(key: key);
 
@@ -25,7 +27,6 @@ class BottomNavigationBarSCreen extends StatelessWidget {
                     return InkWell(
                       onTap: () {
                         value.changeIndex(index);
-                        value.widgetListBottomNav[index];
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,7 +54,7 @@ class BottomNavigationBarSCreen extends StatelessWidget {
                             size: size.width * .076,
                             color: index == value.currentIndex
                                 ? Colors.black
-                                : grey,
+                                : Colors.grey,
                           ),
                           const SizedBox(
                             height: 30,
@@ -66,35 +67,16 @@ class BottomNavigationBarSCreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: InkWell(
-                onTap: () {
-                  
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: 15,
-                    height: 55,
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 10, bottom: 5),
-                      height: size.height / 10,
-                      decoration: BoxDecoration(
-                        color: yellow,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        size: 30,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              child: CustomAddButton(size: size),
             ),
           ],
         ),
       ),
-      body: controler.widgetListBottomNav[controler.currentIndex],
+      body: Consumer<BottomNavigationController>(
+        builder: ((context, value, _) {
+          return value.widgetListBottomNav[value.currentIndex];
+        }),
+      ),
     );
   }
 }

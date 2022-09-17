@@ -52,7 +52,10 @@ class HomeScreen extends StatelessWidget {
                           children: const [
                             Text(
                               "My debts",
-                              style: TextStyle(fontSize: 20),
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             Text(
                               "see All",
