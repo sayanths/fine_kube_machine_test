@@ -2,7 +2,6 @@ import 'package:fine_kube_machine_test/bottom_navigation/view_model/bottom_nav_c
 import 'package:fine_kube_machine_test/core/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'widgets/custom_button.dart';
 
 class BottomNavigationBarSCreen extends StatelessWidget {
